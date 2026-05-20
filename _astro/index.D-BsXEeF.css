@@ -836,7 +836,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    filter: blur(16px);
+    filter: blur(8px);
     z-index: 0
 }
 
