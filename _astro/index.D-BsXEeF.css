@@ -825,14 +825,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden
+}
+
+.hero[data-astro-cid-bbe6dxrz]::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
     background-image: url(../images/background.webp);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed
+    background-attachment: fixed;
+    filter: blur(16px);
+    z-index: 0
 }
 
 @supports (-webkit-touch-callout: none) {
-    .hero[data-astro-cid-bbe6dxrz] {
+    .hero[data-astro-cid-bbe6dxrz]::before {
         background-attachment: scroll
     }
 }
