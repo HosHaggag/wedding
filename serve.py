@@ -5,7 +5,11 @@ import socketserver
 from pathlib import Path
 
 PORT = 8765
-ROOT = Path(__file__).resolve().parent / "wedding.fadl.info"
+ROOT = Path(__file__).resolve().parent / ""
+
+
+class ReusableTCPServer(socketserver.TCPServer):
+    allow_reuse_address = True
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -27,8 +31,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 def main():
     if not ROOT.is_dir():
         raise SystemExit(f"Missing site folder: {ROOT}")
-    with socketserver.TCPServer(("0.0.0.0", PORT), Handler) as httpd:
-        httpd.allow_reuse_address = True
+    with ReusableTCPServer(("0.0.0.0", PORT), Handler) as httpd:
         print(f"Serving {ROOT} at http://localhost:{PORT}/  (Ctrl+C to stop)")
         try:
             httpd.serve_forever()
