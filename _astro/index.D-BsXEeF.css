@@ -825,23 +825,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden
-}
-
-.hero[data-astro-cid-bbe6dxrz]::before {
-    content: "";
-    position: absolute;
-    inset: -40px;
     background-image: url(../images/background.webp);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    filter: blur(8px);
-    z-index: 0
+    background-attachment: fixed
 }
 
 @supports (-webkit-touch-callout: none) {
-    .hero[data-astro-cid-bbe6dxrz]::before {
+    .hero[data-astro-cid-bbe6dxrz] {
         background-attachment: scroll
     }
 }
@@ -849,7 +840,9 @@ body {
 .hero-overlay[data-astro-cid-bbe6dxrz] {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, #0a0a0fb3, #0a0a0f80, #0a0a0fcc)
+    background: linear-gradient(to bottom, #0a0a0fb3, #0a0a0f80, #0a0a0fcc);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px)
 }
 
 .hero-content[data-astro-cid-bbe6dxrz] {
